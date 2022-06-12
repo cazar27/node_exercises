@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "base3": "node app --base=3"
+    "listBase3": "node app list --base=3",
+    "makeBase4":"node app make --base=4 --limit=6"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,12 @@
   "bugs": {
     "url": "https://github.com/cazar27/node_exercises/issues"
   },
-  "homepage": "https://github.com/cazar27/node_exercises#readme"
+  "homepage": "https://github.com/cazar27/node_exercises#readme",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "yargs": "^17.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
 }
