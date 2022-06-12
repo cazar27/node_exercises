@@ -1,23 +1,22 @@
-const fs = require('fs');
+const argv = require('./config/yargs').argv;
+const colors = require('colors/safe');
 
-console.clear();
+const { makeFile, listTable } = require('./helpers/multiply');
 
-let base = 3;
-let salida = ''; 
+let comando = argv._[0];
 
-salida += ('================='+ '\n');
-salida += ('   Tabla del: ' + base + '   '+ '\n');
-salida += ('================='+ '\n');
+switch (comando) {
 
-for ( let i = 1; i <= 10; i++ ) {
-    salida += ( base + ' x ' + i + ' = ' + ( i * base ) + '\n' );
+    case 'list':
+        listTable(argv.base, argv.limit);
+        break;
+
+    case 'make':
+        makeFile(argv.base, argv.limit)
+            .then(file => console.log(`Archivo creado: `, colors.green(file)))
+            .catch(e => console.log(e));
+        break;
+
+    default:
+        console.log('Comando no reconocido');
 }
-
-// console.log(salida);
-
-const data = new Uint8Array(Buffer.from(salida));
-
-fs.writeFile('tabla_del_'+ base +'.txt', data, (err) => {
-  if (err) throw err;
-  console.log('Archivo: tabla_del_'+ base +'.txt creado');
-});
