@@ -108,9 +108,9 @@ const printMenu = async ( choices = [] ) => {
       choices
     }
   ];
-  const {opt} = await inquirer.prompt(menuOpt);
+  const {id} = await inquirer.prompt(menuOpt);
 
-  return opt;
+  return id;
 };
 
 

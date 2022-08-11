@@ -13,8 +13,9 @@ class Tasks {
   }
 
   deleteTask(id = "") {
+    console.log(id);
     if (this._list[id]) {
-      console.log(id);
+    
       delete this._list[id];
     }
   }
