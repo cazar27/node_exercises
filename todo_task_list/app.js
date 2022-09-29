@@ -84,9 +84,6 @@ const main = async () => {
           }
         }
         break;
-
-      default:
-        break;
     }
 
     writeDB(tasks.listArr());
